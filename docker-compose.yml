@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  dr-herwitz:
+    build: .
+    container_name: dr-herwitz-website
+    restart: unless-stopped
+    ports:
+      - "3080:80"
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
+

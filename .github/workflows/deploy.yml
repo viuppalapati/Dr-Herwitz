@@ -1,0 +1,68 @@
+name: Build and Deploy to Contabo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: |
+          docker build -t dr-herwitz-website:latest .
+
+      - name: Save Docker image
+        run: |
+          docker save dr-herwitz-website:latest | gzip > dr-herwitz-website.tar.gz
+
+      - name: Copy image to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          source: "dr-herwitz-website.tar.gz,docker-compose.yml"
+          target: "/opt/dr-herwitz"
+
+      - name: Deploy to Contabo
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            cd /opt/dr-herwitz
+            
+            # Create network if it doesn't exist
+            docker network create web 2>/dev/null || true
+            
+            # Stop and remove existing container if running
+            docker stop dr-herwitz-website 2>/dev/null || true
+            docker rm dr-herwitz-website 2>/dev/null || true
+            
+            # Remove old image
+            docker rmi dr-herwitz-website:latest 2>/dev/null || true
+            
+            # Load new image
+            gunzip -c dr-herwitz-website.tar.gz | docker load
+            
+            # Start container with docker-compose
+            docker-compose up -d
+            
+            # Clean up
+            rm -f dr-herwitz-website.tar.gz
+            
+            # Prune unused images
+            docker image prune -f
+            
+            echo "Deployment completed successfully!"
+
