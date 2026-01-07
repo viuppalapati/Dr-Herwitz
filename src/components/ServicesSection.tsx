@@ -29,16 +29,16 @@ const ServiceCard = ({ title, description, image }: ServiceCardProps) => {
       {/* Gradient Overlay - covers entire card */}
       <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/70 to-primary/40" />
       
-      {/* Content Container */}
-      <div className="absolute inset-0 flex flex-col justify-end p-6 lg:p-8">
-        <div className="space-y-4">
-          <h3 className="font-serif text-2xl lg:text-3xl font-medium text-white">
-            {title}
-          </h3>
-          
-          <div className="text-white/85 text-sm lg:text-base leading-relaxed">
-            {description}
-          </div>
+      {/* Content Container - Fixed height area at bottom */}
+      <div className="absolute inset-x-0 bottom-0 h-[240px] p-6 lg:p-8 flex flex-col">
+        {/* Title - at top of content area */}
+        <h3 className="font-serif text-2xl lg:text-3xl font-medium text-white mb-4">
+          {title}
+        </h3>
+        
+        {/* Description - starts at same level for all cards */}
+        <div className="text-white/85 text-sm lg:text-base leading-relaxed">
+          {description}
         </div>
       </div>
     </div>

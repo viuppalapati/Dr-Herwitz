@@ -43,7 +43,7 @@ const StateCard = ({ name, image }: StateCardProps) => {
 
 const IntroSection = () => {
   return (
-    <section className="section-padding bg-cream-dark/30">
+    <section className="section-padding bg-[#d5dae3]">
       <div className="section-container">
         <div className="max-w-5xl mx-auto text-center space-y-8">
           <p className="body-large text-foreground leading-relaxed max-w-3xl mx-auto">
