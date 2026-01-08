@@ -6,54 +6,56 @@
 
 @layer base {
   :root {
-    /* Warm cream base */
-    --background: 40 33% 97%;
-    --foreground: 220 25% 18%;
+    /* Warmer cream/ivory base */
+    --background: 38 40% 96%;
+    --foreground: 215 45% 20%;
 
-    /* Card surfaces - slightly warmer */
-    --card: 40 30% 95%;
-    --card-foreground: 220 25% 18%;
+    /* Card surfaces - warm ivory */
+    --card: 38 35% 94%;
+    --card-foreground: 215 45% 20%;
 
-    --popover: 40 33% 97%;
-    --popover-foreground: 220 25% 18%;
+    --popover: 38 40% 96%;
+    --popover-foreground: 215 45% 20%;
 
-    /* Deep slate blue - primary */
-    --primary: 215 35% 32%;
-    --primary-foreground: 40 33% 97%;
+    /* Navy blue - primary */
+    --primary: 215 50% 25%;
+    --primary-foreground: 38 40% 96%;
 
-    /* Warm taupe - secondary */
-    --secondary: 30 15% 88%;
-    --secondary-foreground: 220 25% 18%;
+    /* Warm ivory - secondary */
+    --secondary: 35 30% 90%;
+    --secondary-foreground: 215 45% 20%;
 
-    /* Muted tones */
-    --muted: 30 12% 90%;
-    --muted-foreground: 220 15% 45%;
+    /* Muted tones - warmer */
+    --muted: 35 25% 92%;
+    --muted-foreground: 215 25% 40%;
 
-    /* Sage green - accent */
-    --accent: 150 18% 75%;
-    --accent-foreground: 220 25% 18%;
+    /* Warm sage - accent */
+    --accent: 150 15% 78%;
+    --accent-foreground: 215 45% 20%;
 
     /* Destructive */
     --destructive: 0 72% 51%;
-    --destructive-foreground: 40 33% 97%;
+    --destructive-foreground: 38 40% 96%;
 
-    /* Borders and inputs */
-    --border: 30 15% 85%;
-    --input: 30 15% 85%;
-    --ring: 215 35% 32%;
+    /* Borders and inputs - warmer */
+    --border: 35 20% 85%;
+    --input: 35 20% 85%;
+    --ring: 215 50% 25%;
 
     --radius: 0.375rem;
 
     /* Custom tokens */
-    --cream: 40 33% 97%;
-    --cream-dark: 40 25% 92%;
-    --slate-blue: 215 35% 32%;
-    --slate-blue-light: 215 30% 45%;
-    --sage: 150 18% 75%;
+    --cream: 38 40% 96%;
+    --cream-dark: 38 30% 92%;
+    --warm-cream: 38 35% 94%;
+    --navy: 215 50% 20%;
+    --slate-blue: 215 45% 30%;
+    --slate-blue-light: 215 35% 45%;
+    --sage: 150 15% 78%;
     --sage-dark: 150 20% 40%;
-    --taupe: 30 15% 70%;
-    --taupe-light: 30 15% 88%;
-    --gold: 38 50% 55%;
+    --taupe: 30 20% 72%;
+    --taupe-light: 35 25% 88%;
+    --gold: 40 55% 55%;
 
     /* Typography */
     --font-serif: 'Playfair Display', Georgia, serif;

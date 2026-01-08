@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      screens: {
+        'xs': '800px',
+      },
       fontFamily: {
         serif: ['Playfair Display', 'Georgia', 'serif'],
         sans: ['DM Sans', 'system-ui', 'sans-serif'],
@@ -27,6 +30,8 @@ export default {
           DEFAULT: "hsl(var(--cream))",
           dark: "hsl(var(--cream-dark))",
         },
+        "warm-cream": "hsl(var(--warm-cream))",
+        navy: "hsl(var(--navy))",
         slate: {
           blue: "hsl(var(--slate-blue))",
           "blue-light": "hsl(var(--slate-blue-light))",

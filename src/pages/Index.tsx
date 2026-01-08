@@ -5,13 +5,15 @@ import IntroSection from "@/components/IntroSection";
 import ServicesSection from "@/components/ServicesSection";
 import FiveWindowsSection from "@/components/FiveWindowsSection";
 import AboutSection from "@/components/AboutSection";
+import LogosSection from "@/components/LogosSection";
 import Footer from "@/components/Footer";
+import VersionSwitcher from "@/components/VersionSwitcher";
 
 const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Dr. Herwitz | Clinical Psychologist NYC | Couples Therapy & Adult Development</title>
+        <title>Dr. Herwitz | Clinical Psychologist NYC | Individual & Couples Therapy</title>
         <meta 
           name="description" 
           content="Dr. Herwitz is a licensed Clinical Psychologist in NYC specializing in adult development, couples therapy, and discernment counseling. In-person and virtual therapy available." 
@@ -44,13 +46,15 @@ const Index = () => {
       </Helmet>
 
       <div className="min-h-screen bg-background">
+        <VersionSwitcher currentVersion="new" />
         <Header />
-        <main>
+        <main className="pt-24 md:pt-28">
           <HeroSection />
           <IntroSection />
           <ServicesSection />
           <FiveWindowsSection />
           <AboutSection />
+          <LogosSection />
         </main>
         <Footer />
       </div>

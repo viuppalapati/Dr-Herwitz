@@ -7,7 +7,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#" className="flex flex-col items-center">
             <span className="font-serif text-xl md:text-2xl font-medium text-foreground tracking-tight">
-              Johanna Herwitz
+              Johanna Herwitz, Ph.D.
             </span>
             <span className="text-xs text-muted-foreground tracking-wide">
               Psychotherapy for Adults

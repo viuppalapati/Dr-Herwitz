@@ -1,12 +1,15 @@
-// Impressionist artwork for service backgrounds
-import serviceIndividual from "@/assets/service-individual.png";
-import serviceCouples from "@/assets/service-couples.png";
-import serviceDiscernment from "@/assets/service-discernment.png";
+import { Link } from "react-router-dom";
+// Josef Albers artwork for service backgrounds
+import josef1 from "@/assets/Josef 1.png";
+import josef2 from "@/assets/Josef 2.png";
+import josef3 from "@/assets/Josef 3.png";
+// PDF for couples therapy
+import couplesTherapyPdf from "@/assets/CI_Stepping_Stones_012825.pdf";
 
 const serviceImages = {
-  individual: serviceIndividual,
-  couples: serviceCouples,
-  discernment: serviceDiscernment,
+  individual: josef1,
+  couples: josef2,
+  discernment: josef3,
 };
 
 interface ServiceCardProps {
@@ -17,27 +20,25 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ title, description, image }: ServiceCardProps) => {
   return (
-    <div className="group relative h-[520px] rounded-xl overflow-hidden shadow-lg">
-      {/* Background Image Container - overflow hidden keeps zoom contained */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
-          style={{ backgroundImage: `url(${image})` }}
-        />
-      </div>
+    <div className="group relative aspect-square rounded-xl overflow-hidden shadow-lg w-full sm:w-full lg:w-[350px] lg:h-[350px] lg:max-w-[350px]">
+      {/* Background Image - covers entire card */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
+        style={{ backgroundImage: `url(${image})` }}
+      />
       
-      {/* Gradient Overlay - covers entire card */}
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/70 to-primary/40" />
+      {/* Gradient Overlay - more transparent to show artwork */}
+      <div className="absolute inset-0 bg-navy/40" />
       
-      {/* Content Container - Fixed height area at bottom */}
-      <div className="absolute inset-x-0 bottom-0 h-[240px] p-6 lg:p-8 flex flex-col">
-        {/* Title - at top of content area */}
-        <h3 className="font-serif text-2xl lg:text-3xl font-medium text-white mb-4">
+      {/* Content Container - centered vertically and horizontally within square with consistent padding */}
+      <div className="absolute inset-4 sm:inset-6 md:inset-8 lg:inset-8 flex flex-col items-center justify-center text-center">
+        {/* Title */}
+        <h3 className="font-serif text-xl sm:text-2xl md:text-2xl lg:text-3xl font-medium text-white mb-3 sm:mb-4 lg:mb-4">
           {title}
         </h3>
         
-        {/* Description - starts at same level for all cards */}
-        <div className="text-white/85 text-sm lg:text-base leading-relaxed">
+        {/* Description */}
+        <div className="text-white/90 text-xs sm:text-sm md:text-sm lg:text-base leading-relaxed">
           {description}
         </div>
       </div>
@@ -50,30 +51,27 @@ const ServicesSection = () => {
     <section id="services" className="section-padding">
       <div className="section-container">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="heading-section text-foreground">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.15]">
             Services
           </h2>
-          <p className="body-large text-muted-foreground max-w-2xl mx-auto">
-            Evidence-based treatment modalities tailored to individual needs and relational dynamics.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 justify-items-center">
           <ServiceCard
             title="Individual Therapy"
             image={serviceImages.individual}
             description={
               <p>
-                For anxiety, mood disorders, trauma, and sexual concerns. Integrating evidence-based modalities including{" "}
+                Integrating modalities including psychodynamic therapy,{" "}
                 <a 
                   href="https://www.thetoolsbook.com/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-white underline underline-offset-4 decoration-white/50 hover:decoration-white transition-colors"
                 >
-                  The Tools®
+                  The Tools
                 </a>
-                , psychodynamic therapy, CBT, and IFS.
+                , CBT and IFS for treatment of anxiety and mood disorders, sexual concerns, and relationship difficulties.
               </p>
             }
           />
@@ -83,26 +81,33 @@ const ServicesSection = () => {
             image={serviceImages.couples}
             description={
               <p>
-                Using Bader and Pearson's{" "}
+                Identifying and improving negative interaction patterns, managing differences, balancing autonomy and connection and deepening intimacy using Bader and Pearson's{" "}
                 <a 
-                  href="https://www.couplesinstitute.com/couples-blog/" 
+                  href={couplesTherapyPdf}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-white underline underline-offset-4 decoration-white/50 hover:decoration-white transition-colors"
                 >
-                  Developmental Model®
+                  Developmental Model
                 </a>
-                . Focused on differentiation, emotional regulation, and long-term relational growth.
+                .
               </p>
             }
           />
 
           <ServiceCard
-            title="Discernment Counseling"
+            title="Considering Divorce?"
             image={serviceImages.discernment}
             description={
               <p>
-                A structured 5-session protocol for couples on the brink of divorce. Helping partners clarify the future of the relationship with confidence.
+                Using a structured, 1-5 session protocol called{" "}
+                <Link 
+                  to="/discernment-counseling"
+                  className="text-white underline underline-offset-4 decoration-white/50 hover:decoration-white transition-colors"
+                >
+                  Discernment Counseling
+                </Link>
+                , married couples gain clarity and confidence in deciding whether to stay together, divorce, or work on their relationship in couples therapy for a discreet period of time, after which they will reconsider a future direction for their marriage.
               </p>
             }
           />

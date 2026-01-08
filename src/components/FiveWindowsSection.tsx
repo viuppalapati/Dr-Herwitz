@@ -1,66 +1,143 @@
 import { Button } from "@/components/ui/button";
+import josef1 from "@/assets/Josef 1.png";
+import josef2 from "@/assets/Josef 2.png";
+import josef3 from "@/assets/Josef 3.png";
+import fiveWindowsLogo from "@/assets/Five Windows Logo.webp";
+
+// Hand icon component pointing right for bullet points
+const HandIcon = () => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="20" 
+    height="20" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+    className="flex-shrink-0"
+    style={{ transform: 'rotate(90deg)' }}
+  >
+    <path d="M18 11v-1a2 2 0 0 0-2-2h-2" />
+    <path d="M14 10V9a2 2 0 0 0-2-2h-2" />
+    <path d="M10 9.5V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v6" />
+    <path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
+  </svg>
+);
 
 const FiveWindowsSection = () => {
   return (
     <section id="five-windows" className="relative section-padding overflow-hidden">
-      {/* Premium background treatment */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-slate-blue" />
+      {/* Premium background with Josef Albers inspired treatment */}
+      <div className="absolute inset-0 bg-navy" />
       
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
-          backgroundSize: '32px 32px'
-        }} />
+      {/* Decorative Albers-style squares */}
+      <div className="absolute inset-0 overflow-hidden opacity-20">
+        <div 
+          className="absolute top-10 left-10 w-64 h-64 bg-cover bg-center blur-sm"
+          style={{ backgroundImage: `url(${josef1})` }}
+        />
+        <div 
+          className="absolute bottom-10 right-10 w-48 h-48 bg-cover bg-center blur-sm"
+          style={{ backgroundImage: `url(${josef2})` }}
+        />
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-cover bg-center blur-sm"
+          style={{ backgroundImage: `url(${josef3})` }}
+        />
       </div>
 
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-sage/10 rounded-full blur-3xl" />
+      {/* Subtle overlay */}
+      <div className="absolute inset-0 bg-navy/60" />
 
       <div className="section-container relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          {/* Elegant badge */}
-          <div className="inline-flex items-center gap-3 px-4 py-2 bg-primary-foreground/10 rounded-full border border-primary-foreground/20">
-            <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-            <span className="text-xs uppercase tracking-[0.2em] text-primary-foreground/80">
-              Exclusive Program
-            </span>
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          {/* Logo */}
+          <div className="flex justify-center mb-4">
+            <div className="bg-white/95 rounded-lg p-3 md:p-4 inline-block">
+              <img 
+                src={fiveWindowsLogo} 
+                alt="Five Windows Logo" 
+                className="h-12 md:h-16 lg:h-20 w-auto"
+              />
+            </div>
           </div>
 
           <h2 className="heading-section text-primary-foreground">
-            Founder of Five Windows
+            The Five Windows Weekend
           </h2>
 
-          <p className="font-serif text-2xl md:text-3xl text-primary-foreground/90 italic">
-            Elevating Lasting Love
+          <p className="font-serif text-xl md:text-2xl text-gold italic">
+            An annual, invitation-only gathering
           </p>
 
-          <div className="w-16 h-px bg-gold mx-auto" />
+          <div className="w-16 h-px bg-gold mx-auto my-6" />
 
-          <p className="body-large text-primary-foreground/80 max-w-2xl mx-auto">
-            Developed to support successful, long-term committed couples optimize the chapter of life following careers and family. A private, invitation-only weekend gathering held in vibrant settings selected for natural beauty and privacy.
-          </p>
+          <div className="space-y-6 text-primary-foreground/80 max-w-2xl mx-auto text-left">
+            <p className="body-large leading-relaxed flex items-start gap-3">
+              <span className="text-gold mt-1">
+                <HandIcon />
+              </span>
+              <span>
+                for the rare couple who has built something strong after decades together building families and careers.
+              </span>
+            </p>
+            
+            <p className="body-large leading-relaxed flex items-start gap-3">
+              <span className="text-gold mt-1">
+                <HandIcon />
+              </span>
+              <span>
+                who find themselves at a new stage in life where time is no longer the scarce resource it once was.
+              </span>
+            </p>
+            
+            <p className="body-large leading-relaxed flex items-start gap-3">
+              <span className="text-gold mt-1">
+                <HandIcon />
+              </span>
+              <span>
+                who want to discover how to take even more pleasure in one another as they grow into a new chapter.
+              </span>
+            </p>
+          </div>
 
-          <div className="flex flex-wrap justify-center gap-6 pt-4 text-sm text-primary-foreground/60">
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-              Invitation Only
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-              Weekend Retreat
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-              Curated Locations
-            </span>
+          <div className="w-16 h-px bg-gold/50 mx-auto my-8" />
+
+          <div className="space-y-6 text-primary-foreground/70 max-w-2xl mx-auto">
+            <p className="leading-relaxed">
+              Held in a place where the natural beauty reflects what you have created together and inspires you to access deeper longings that don't emerge during the day-to-day.
+            </p>
+            
+            <p className="leading-relaxed">
+              Guided by steady hands so you stay focused on the future without being distracted by the past.
+            </p>
+          </div>
+
+          <div className="w-16 h-px bg-gold/50 mx-auto my-8" />
+
+          <blockquote className="font-serif text-xl md:text-2xl text-primary-foreground/90 italic max-w-2xl mx-auto border-l-4 border-gold pl-6 md:pl-8">
+            A break to ask and answer the questions essential to living and loving well.
+          </blockquote>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 text-sm text-gold">
+            <span>No therapy.</span>
+            <span>No performing.</span>
+            <span>No demands.</span>
+            <span>No fixing.</span>
+          </div>
+
+          <div className="pt-8">
+            <p className="text-primary-foreground/60 italic max-w-xl mx-auto">
+              The weekend reflects a simple but enduring truth: a life together thrives when time is set aside.
+            </p>
           </div>
 
           <Button 
             variant="outline" 
             size="lg"
-            className="mt-8 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+            className="mt-8 border-gold/40 text-primary-foreground hover:bg-gold hover:text-navy hover:border-gold"
           >
             Inquire About Five Windows
           </Button>

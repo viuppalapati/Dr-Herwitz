@@ -2,7 +2,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="bg-foreground text-primary-foreground">
+    <footer id="contact" className="bg-navy text-primary-foreground">
       <div className="section-container py-16 md:py-20">
         <div className="grid md:grid-cols-3 gap-12 md:gap-8 text-center md:text-left">
           {/* Brand */}
