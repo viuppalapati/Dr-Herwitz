@@ -1,0 +1,17 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+README.md
+.env
+.env.local
+.env.production
+*.md
+.vscode
+.idea
+.DS_Store
+dist
+dist-ssr
+*.local
+.github
+Discernment Counseling text for website.pages
